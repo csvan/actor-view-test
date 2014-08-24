@@ -1,15 +1,14 @@
 <div>
-    <div data-lift="comet?type=InnerPingActor"></div>
     <br/><br/>
-    <h4>Everything below this line is dynamically loaded by Angular. It's full of stars!</h4>
-
+    <h4>Everything below this line is dynamically loaded by Angular!</h4>
     <p>
-        Welcome to the inner view - this segment of the page has been dynamically retrieved and served by Angular. The
+        This is the inner page, which has been dynamically retrieved and served by Angular. The
         buttons below do what you expect - use them and verify in your console that you are receiving the pings. As of
         current, this is not working.
     </p>
 
-    <div>
+    <div ng-controller="InnerController">
+        <div data-lift="comet?type=InnerPingActor"></div>
         <input type="button" value="Start inner pinging" ng-click="binding.startInnerPing()"/>
         <input type="button" value="Stop inner pinging" ng-click="binding.stopInnerPing()"/>
     </div>
