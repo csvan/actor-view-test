@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>Home</title></head>
+<body class="lift:content_id=main">
+<div id="main" class="lift:surround?with=default;at=content">
+    <div ng-app="HelloWorldApp">
+        <h2>A short demo of using actors in dynamically loaded views</h2>
+
+        <p>This project uses two AngularActors: OuterPingActor and InnerPingActor. These actors simply send pings to the
+            client, which are then picked up and logged to the JS console. You can use you browsers dev tools to view
+            them.
+            <br/><br/>
+            OuterPing is loaded in the "outer" context of the application, i.e. a page served directly by Lift, not
+            loaded dynamically by Angular. The converse is true for InnerPing, which is loaded on a page which is
+            retrived and served by Angular, by means of the ng-view attribute.
+            <br/><br/>
+            You can use the buttons below to start and stop the ping process for the outer context. Check your console
+            to verify that the pings indeed arrive.
+            <br/><br/>
+            When ready, follow the "Angular dynamic view" in the menu, in order to dynamically load an Angular view with
+            similar functionality.
+        </p>
+
+        <div ng-controller="OuterController">
+            <div data-lift="comet?type=OuterPingActor"></div>
+            <input type="button" value="Start pinging" ng-click="binding.startOuterPing()"/>
+            <input type="button" value="Stop pinging" ng-click="binding.stopOuterPing()"/>
+        </div>
+
+        <div ng-view></div>
+
+    </div>
+    <script type="application/javascript" data-lift="PingServices.services"></script>
+    <script src="js/HelloWorld.js" type="application/javascript"></script>
+</div>
+</body>
+</html>
+
